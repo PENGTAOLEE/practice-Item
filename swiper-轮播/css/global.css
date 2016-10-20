@@ -1,0 +1,13 @@
+/* Document CSS */
+.swiper-slide {
+	height: 500px;
+	background-color: red;
+	line-height: 500px;
+	text-align: center;
+	font-size: 50px;
+	color: #fff;
+}
+.dontKonw {
+	text-align: center;
+	background: yellow;
+}
