@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>风变科技官网的一个小效果</title>
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>
+	<main>
+		<ul>
+			<li class="item">
+				<!-- figure : 用过文档中插图的图像 -->
+				<figure class="img">
+					<img src="img/case-1.jpg">
+				</figure>
+				<div class="shadow">
+					<h3>原木纯品清风</h3>
+					<span>人生中的小梦想，总是要惦记的，无论你在年幼时候梦想着要实现什么，要做什么，请千万别觉得Ta幼稚，别瞧不起Ta。无论是过去的你，还是将来的你，Ta终将是你自己的一部分，你理应为年幼的你负责，实现Ta一个又一个的小梦想 。</span>
+				</div>
+			</li>
+		</ul>
+	</main>
+	<script type="text/javascript">
+		var oLi = document.getElementsByTagName("li")
+		for (var i = 0; i < oLi.length; i++) {
+			oLi[i].addEventListener("mouseover",function(){
+				var shadow = this.getElementsByClassName("shadow")[0]
+				shadow.style.bottom = "0px"
+			},false)
+			oLi[i].addEventListener("mouseout",function(){
+				var shadow = this.getElementsByClassName("shadow")[0]
+				shadow.style.bottom = "-100px"
+			},false)
+		}
+	</script>
+</body>
+</html>
