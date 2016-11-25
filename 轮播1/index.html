@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>轮播</title>
+	<style type="text/css">
+		
+        * {
+            padding:0;
+            margin:0;
+        }
+        .clearfix:before,
+        .clearfix:after {
+             content: " ";
+             display: table; }
+
+        .clearfix:after {
+            clear: both;
+            overflow: hidden; }
+
+        .clearfix {
+            zoom: 1; }
+        body {
+            background: #f1f1f1;
+        }
+        li {
+            list-style: none;
+        }
+        #container {
+
+        }
+        #container ul {
+            position: relative;
+            width:1200px;
+            margin:50px auto;
+        }
+        #container ul li {
+            position: absolute;
+            left:0;
+            top:0;
+            width:800px;
+            margin:0 auto;
+            height:210px;
+            border-radius: 5px;
+            background: #fff;
+            box-shadow: 0 0 2px #ccc;
+            float: left;
+            text-align: center;
+            line-height: 210px;
+            -webkit-transition: all .3s ease;
+            		transition: all .3s ease;
+        }
+        #container li.left {
+            -webkit-transform: translate3d(0,0,0);
+            		transform: translate3d(0,0,0);
+        }
+        #container li.right {
+            -webkit-transform: translate3d(50%,0,0);
+                    transform: translate3d(50%,0,0);
+        }
+        #container li.active {
+            transform: scale(1.1);
+            left: 200px;
+            z-index:10;
+        }
+        #prev {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+        #next {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+        }
+    
+	</style>
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>
+	<main id="container">
+		<ul id="box" class="clearfix">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+            <li>6</li>
+            <li>7</li>
+		</ul>
+		<!-- <div id="prev">上一张</div>
+		<div id="next">下一张</div> -->
+	</main>
+	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>
