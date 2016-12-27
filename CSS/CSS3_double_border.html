@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3 double border 双线框</title>
+	<style type="text/css">
+		#double-border {
+			text-align: center;
+			border: 3px double #000;
+			height: 100px;
+		    border-width: 3px;
+		    /*border-style: solid;*/
+		    -moz-border-top-colors: #000 #fff;
+		    -moz-border-right-colors: #000 #fff;
+		    -moz-border-bottom-colors: #000 #fff;
+		    -moz-border-left-colors: #000 #fff;
+		    background: -moz-linear-gradient(50% 0,#888,#fff);
+		    background: -webkit-gradient(linear,50% 0,50% 100%,from(#888),to(#fff));
+		}
+	</style>
+</head>
+<body>
+	<div id="double-border">Double Border</div>
+</body>
+</html>
