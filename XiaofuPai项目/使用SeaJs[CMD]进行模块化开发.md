@@ -1,7 +1,7 @@
 # Seajs 模块化开发
 
 > 项目结构
-```
+``` bash
 public
 ├── README.md
 ├── res
