@@ -2,32 +2,32 @@
 
 > 项目结构
 ``` bash
-public
-├── README.md
-├── res
-│   ├── css
-│   ├── img
-│   ├── js
-│	│  	├── module
-│	│	│	  ├── component1
-│	│	│	  │			├── index.html
-│	│	│	  │			├── index.js
-│	│	│	  │			└── index.css
-│	│	│	  │	  ...
-│	│	│	  └── componentN
-│	│	│
-│   │   ├── app.js
-│	│	├── router.js
-│	│	├── utils.js
-│	│	└── ajax.js
-│   │
-│   ├── lib
-│	│	├── jquery
-│	│	├── vue
-│	│   │   ...
-│	│	└── SEA.JS
-│   ├── index.html
-└── static
+    .
+    ├── README.md
+    ├── res
+    │   ├── css
+    │   ├── img
+    │   ├── js
+    │	│   ├── module
+    │	│   │	  ├── component1
+    │	│   │	  │	├── index.html
+    │	│   │	  │	├── index.js
+    │	│   │	  │	└── index.css
+    │	│   │	  │	...
+    │	│   │	  └── componentN
+    │	│   │
+    │   │   ├── app.js
+    │	│   ├── router.js
+    │	│   ├── utils.js
+    │	│   └── ajax.js
+    │   │
+    │   ├── lib
+    │	│   ├── jquery
+    │	│   ├── vue
+    │	│   │   ...
+    │	│   └── SEA.JS
+    │   ├── index.html
+    └── static
 ```
 
 > 在index.html文件中初始化sea.js
