@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>订单列表 - 美丽说</title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" href="css/insex.css">
+	<link rel="stylesheet" href="css/personal.css">
+	<link rel="stylesheet" href="css/shop_car.css"/>
+</head>
+<body>
+<!-- Header -->
+	<div id="head">
+		<div id="top_bar" class="clearfix">
+			<div class="inner wrap">
+				<ul class="list">
+					<li class="drop">
+						<a href="personal.html"><i class="winxin"></i>七月<i class="arrow"></i></a>
+						<dl class="down">
+							<dd>我的杂志</dd>
+							<dd>我的分享</dd>
+							<dd>账号与安全</dd>
+							<dd>退出</dd>
+						</dl>
+					</li>
+					<li class="drop">
+						<a href="#">
+						消息
+						<span class="msg_num">0</span>
+						<i class="arrow"></i>
+						</a>
+						<dl class="down">
+							<dd class="msg clearfix">有<strong>0</strong>条新系统消息</dd>
+							<dd class="know"><a href="">知道了</a></dd>
+							<dd>查看关注</dd>
+							<dd>查看@我的</dd>
+							<dd>查看系统消息</dd>
+							<dd>查看系统消息</dd>
+							<dd>查看喜欢我的</dd>
+							<dd>查看回复我的</dd>
+						</dl>
+					</li>
+					<li>
+						<a href="#"><i class="mylike"></i>我的喜欢</a>
+					</li>
+					<li>
+						<a href="shop_car.html"><i class="cart"></i>我的购物车</a>
+					</li>
+					<li>
+						<a href="order.html"><i class="order"></i>我的订单</a>
+					</li>
+					<li class="download">
+						<a href="#"><i class="mob"></i>下载App</i><i class="arrow"></i></a>
+						<dl class="qrcode_mls">
+							<img src="img/qrcode.png" alt="1">
+							<div class="client_mls">
+								<p>美丽说客户端</p>
+								<span>发现流行，只做正确流行款</span>
+							</div>
+						</dl>
+					</li>
+					<li>
+						<a href="#">帮助中心</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div id="search" class="wrap clearfix">
+			<div class="logo f_lt">
+				<img src="img/logo.png" alt="logo">
+			</div>
+			<div class="search f_lt">
+				<div class="search_tab">
+					<span class="active">宝贝</span>
+					<span>店铺</span>
+				</div>
+				<div class="search_box clearfix">
+					<input type="text" placeholder="这些伞 让你爱上下雨天" />
+					<span class="search_btn f_lt"></span>
+				</div>
+			</div>
+		</div>
+		<div id="nav" class="wrap clearfix">
+			<ul>
+				<li>
+					<a href="index.html" class="active">首页</a>
+				</li>
+				<li>
+					<a href="list.html">最热</a>
+				</li>
+				<li>
+					<a href="#">上衣</a>
+				</li>
+				<li>
+					<a href="#">裙子</a>
+				</li>
+				<li>
+					<a href="#">裤子</a>
+				</li>
+				<li>
+					<a href="#">鞋子</a>
+				</li>
+				<li>
+					<a href="#">包包</a>
+				</li>
+				<li>
+					<a href="#">配饰</a>
+				</li>
+				<li class="drop">
+					<a href="#">更多</a>
+					<i class="arrow"></i>
+		<!-- 隐藏元素 -->
+					<ul class="down" style="display: none;">
+						<li><a href="">内衣</a></li>
+						<li><a href="">美妆</a></li>
+						<li><a href="">男装</a></li>
+						<li><a href="">童装</a></li>
+						<li><a href="">家居</a></li>
+						<li><a href="">小家电</a></li>
+						<li><a href="">食品</a></li>
+					</ul>
+				</li>
+				<li>
+					<span class="line"></span>
+				</li>
+				<li>
+					<a href="#" class="red">Hi范儿</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+
+<!-- Personal-Center -->
+	<div id="container_per" class="wrap clearfix">
+		<div class="list_per f_lt">
+			<ul>
+				<li>
+					<a href="personal.html">我的主页</a>
+					<span>〉</span>
+				</li>
+				<li>
+					<a href="shop_car.html">我的购物车</a>
+					<span>〉</span>
+				</li>
+				<li>
+					<a href="order.html">我的订单</a>
+					<span>〉</span>
+				</li>
+				<li>
+					<dt>我的优惠特权</dt>
+					<dd><a href="">平台优惠券</a></dd>
+					<dd><a href="">店铺优惠券</a></dd>
+					<dd><a href="">会员特权</a></dd>
+
+				</li>
+				<li>
+					<dt>退款维权</dt>
+					<dd><a href="">退款退货</a></dd>
+					<dd><a href="">我的投诉</a></dd>
+
+				</li>
+				<li>
+					<dt>我的小窝</dt>
+					<dd><a href="">喜欢宝贝</a></dd>
+					<dd><a href="">关注铺子</a></dd>
+					<dd><a href="">我的足迹</a></dd>
+
+				</li>
+				<li>
+					<dt>个人设置</dt>
+					<dd><a href="">收货地址</a></dd>
+					<dd><a href="">账号安全</a></dd>
+
+				</li>
+			</ul>
+		</div>
+		<div class="content_per f_lt clearfix">
+			<div class="head_per nav">
+				<ul>
+					<li class="goods">商品</li>
+					<li class="price">单价(元)</li>
+					<li class="num">数量</li>
+					<li>售后</li>
+					<li>实付款</li>
+					<li>交易状态</li>
+					<li>操作</li>
+				</ul>
+			</div>
+			<div class="wrap_container">
+				<div class="shop_content">
+					<div class="shop_car_list">
+						<div class="empty_car"></div>
+						<div class="to_see">
+							<h4 class="shop_desc">
+								您的购物车还是空的，赶快去挑选商品吧！
+							</h4>
+							<li><em>-</em>去<a href="list.html">热门推荐</a>看看大家都喜欢的</li>
+							<li><em>-</em>去<a href="">团购</a>看看正在折扣中的优品</li>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<!-- Foot -->
+	<div id="foot">
+		<div class="com_foot wrap">
+			<div class="list_f">
+				<div class="icon_tel"></div>
+				<div class="custem">
+					<div class="tel">4000-800-577</div>
+					<div>美丽说客服电话</div>
+					<div class="on">周一至周五：09:00-22:00</div>
+				</div>
+			</div>
+			<div class="list_f ">
+				<h4>买家帮助</h4>
+				<div class="custem">
+					<a href="">新手指南</a>
+					<a href="">服务保障</a>
+					<a href="">帮助中心</a>
+				</div>
+			</div>
+			<div class="list_f ">
+				<h4>商家帮助</h4>
+				<div class="custem">
+					<a href="">商家入驻</a>
+					<a href="">商家推广</a>
+					<a href="">帮助中心</a>
+				</div>
+			</div>
+			<div class="list_f ">
+				<h4>关于我们</h4>
+				<div class="custem">
+					<a href="">关于美丽说</a>
+					<a href="">联系我们</a>
+					<a href="">加入美丽说</a>
+				</div>
+			</div>
+			<div class="list_f ">
+				<h4>关注我们</h4>
+				<div class="custem">
+					<a href=""><i class="sino"></i>新浪微博</a>
+					<a href=""><i class="qq"></i>QQ空间</a>
+					<a href=""><i class="tencent"></i>腾讯微博</a>
+				</div>
+			</div>
+			<div class="list_f ">
+				<h4>美丽说微信服务号</h4>
+				<div class="custem">
+					<a href="" class="qrcode">
+						<img src="img/winxin.jpg" alt="">
+					</a>
+				</div>
+			</div>
+			<div class="list_f ">
+				<a href="" class="client">
+					<img src="img/client.png" alt="">
+				</a>
+			</div>
+		</div>
+		<div class="friend_link wrap">
+			<span>友情链接：</span>
+			<ul>
+				<li class="active">
+					<a href="">猪八戒</a>
+					<a href="">博客园</a>
+					<a href="">Nodejs</a>
+					<a href="">github</a>
+					<a href="">Script</a>
+					<a href="">博客园</a>
+					<a href="">github</a>
+					<a href="">Symbol</a>
+				</li>
+				<li>
+					<a href="">JavaScript</a>
+					<a href="">博客园</a>
+					<a href="">Nodejs</a>
+					<a href="">github</a>
+					<a href="">Script</a>
+					<a href="">博客园</a>
+					<a href="">github</a>
+					<a href="">Symbol</a>
+				</li>
+				<li>
+					<a href="">ES2015</a>
+					<a href="">博客园</a>
+					<a href="">Nodejs</a>
+					<a href="">github</a>
+					<a href="">Script</a>
+					<a href="">博客园</a>
+					<a href="">github</a>
+					<a href="">Symbol</a>
+				</li>
+				<li>
+					<a href="">Reacts</a>
+					<a href="">博客园</a>
+					<a href="">Nodejs</a>
+					<a href="">github</a>
+					<a href="">Script</a>
+					<a href="">博客园</a>
+					<a href="">github</a>
+					<a href="">Symbol</a>
+				</li>
+			</ul>
+			<a href="" class="more">更多〉〉</a>
+		</div>
+		<div class="recode wrap">
+			Copyright&nbsp;&copy;&nbsp;2016 Meilishuo.com
+			<a href="">电信与信息服务业务经营许可证100798号</a>
+			<a href="">经营性网站备案信息</a>     京ICP备11031139号  京公网安备110108006045 
+			<br/>
+			客服电话：4000-800-577  文明办网文明上网举报电话：010-82615762 
+			<a href="">违法不良信息举报中心</a> 
+			<a href="">我最喜爱的人民警察评选>></a> 
+			<a href=""> 反诈骗信息</a> 
+		</div>
+	</div>
+	<div class="side">
+		<div class="side_bar">
+			<p>这里是侧边栏</p>
+			<div class="to_top">
+				<i class="icon_top"></i>
+				<div class="text_top"></div>
+			</div>
+		</div>
+		<div class="fixed_box">
+			<a href="shop_car.html" class="fix_cart">
+				我的购物车
+			</a>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="js/public.js"></script>
+</body>
+</html>

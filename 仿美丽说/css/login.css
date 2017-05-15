@@ -1,0 +1,213 @@
+/* Document CSS */
+body {
+	display: table;
+    width: 100%;
+   /* height: 100%;*/
+    min-height: 100%;
+    background: transparent url(../img/login/login_bg_m1.jpg) no-repeat center top;
+    background-size: cover;
+}
+.reg_wrap {
+	width: 980px;
+	margin: 0 auto;
+	padding-bottom: 50px;
+}
+.head {
+	height: 126px;
+}
+.head .logo a{
+	display: inline-block;
+    background: url("../img/login/register_logo.png") no-repeat;
+    width: 157px;
+    height: 56px;
+    margin-right: 25px;
+    margin-top: 40px;
+}
+.head .logo h1{
+	display: inline-block;
+	color: transparent;
+    background: url("../img/login/welcome_txt.png") no-repeat;
+    width: 336px;
+    height: 56px;
+}
+.main {
+	/*height: 544px;*/
+	background: #fff;
+	padding-top: 40px;
+    padding-right: 50px;
+    padding-left: 80px;
+    padding-bottom: 50px;
+}
+.main .ad {
+	width: 370px;
+	height: 353px;
+}
+.main .login_form {
+	width: 320px;
+	margin-right: 30px;
+	line-height: 30px;
+}
+.login_form h3 {
+	position: relative;
+	display: block;
+	font-size: 14px;
+	line-height: 40px;
+}
+.login_form h3 a{
+	position: absolute;
+	top: 1px;
+	*+top: -10px;
+	right: 2px;
+	padding-bottom: 2px;
+	color: #f69;
+	font-weight: normal;
+	text-decoration: underline;
+}
+.login_list {
+	position: relative;
+	min-height: 68px;
+}
+.login_list input {
+	width: 282px;
+	height: 36px;
+	line-height: 36px;
+	padding-left: 36px;
+	border: 1px solid #ddd;
+}
+.login_list input.active {
+	border: 1px solid #f69;
+}
+.login_list .user_icon,
+.login_list .msg_err,
+.login_list .msg_success,
+.login_list .pwd_icon,
+.login_list .phone_icon {
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	background: url(../img/login/login_icon-4.png) no-repeat 0 0;
+	position: absolute;
+	top: 6px;
+}
+.login_list .user_icon,
+.login_list .msg_err,
+.login_list .msg_success,
+.login_list .pwd_icon,
+.login_list .phone_icon {
+	*display: inline;
+}
+.login_list .phone_icon {
+	background-position: -75px 0px;
+	left: 5px;
+	top: 6px;
+}
+.login_list .user_icon {
+	left: 5px;
+	top: 6px;
+}
+.login_list .msg_err {
+	display: none;
+	background-position: -25px -25px;
+	right: -30px;
+		
+}
+.login_list .msg_success {
+	background-position: -50px -25px;
+	right: -30px;
+}
+
+.login_list .pwd_icon {
+	background-position: -25px 0px;
+	left: 5px;	
+}
+.msg_tip {
+	display: none;
+	color: #f69;
+	line-height: 30px;
+}
+.login_btn input{
+	width: 320px;
+	height: 46px;
+	background: #f69;
+	margin-top: 20px;
+	font-size: 16px;
+	color: #fff;
+	cursor: pointer;
+}
+.rem {
+	border-bottom: 1px dotted #ccc; 
+}
+.login_form .forget_pwd a{
+	color: #f69;
+	text-decoration: underline;
+}
+.fast_login {
+	margin-right: -10px;
+	text-align: center;
+}
+.fast_login h3{
+	font-weight: normal;
+}
+.fast_login a {
+	float: left;
+	margin:0;
+	padding: 0;
+	width: 100px;
+	height: 35px;
+	margin-right: 10px;
+	color: #fff;
+	line-height: 35px;
+	border-radius: 5px;
+}
+.fast_login li {
+	*display: inline;
+}
+.more_login {
+	margin-top: 20px;
+}
+.more_login h4{
+	display: inline-block;
+	margin-right: 10px;
+	line-height: 26px;
+	font-size: 14px;
+	font-weight: normal;
+	cursor: pointer;
+}
+.more_login h4:hover {
+	color: #f69;
+}
+.more_login ul {
+	display: none;
+}
+.more_login li {
+	display: inline-block;
+	vertical-align: middle;
+}
+.more_login li {
+	*display: inline;
+}
+.more_login a {
+	background: url("../img/login/login_icon-4.png") no-repeat;
+    width: 25px;
+    height: 25px;
+    float: left;
+    margin-right: 7px;
+    line-height: 25px;
+}
+.more_login .tencent {
+	background-position: -125px -25px;
+}
+.more_login .douban {
+	background-position: -100px -25px;
+}
+.more_login .renren {
+	background-position: -150px -25px;
+}
+.more_login .baidu {
+	background-position: -75px -25px;
+}
+
+/* register */
+.login_form .agree_reg a{
+	color: #f69;
+}

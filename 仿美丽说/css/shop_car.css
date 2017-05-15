@@ -1,0 +1,211 @@
+/* Document CSS */
+.header_shop {
+	position: relative;
+	height: 30px;
+	background: #fff;
+}
+.header_shop>a {
+	display: inline-block;
+	line-height: 30px;
+}
+.header_shop ul {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+}
+.header_shop ul li {
+	position: relative;
+	float: left;
+	line-height: 30px;
+	z-index: 5;
+}
+.header_shop dl {
+	display: none;
+	position: absolute;
+	right: 0px;
+	width: 120px;
+	border: 1px solid #eee;
+	background: #fff;
+	z-index: 5;
+}
+.header_shop  dd {
+	display: block;
+	text-indent: 20px;
+	height: 20px;
+	line-height: 20px;
+	cursor: pointer;
+}
+.header_shop  dd:hover {
+	background: #ddd;
+	color: #f69;
+}
+.header_shop li>a{
+	padding:0px 12px;
+	border-left: 1px solid #ddd;
+}
+.header_shop .user {
+	border-left: none;
+}
+.header_shop a:hover {
+	color: #f69;
+}
+.to_home {
+	text-indent: 20px;
+	color: #999;
+}
+
+/*wrap*/
+.wrap_shop {
+	background: #f4f4f4;
+}
+.wrap_top_out {
+	width: 100%;
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+}
+.wrap_top {
+	position: relative;
+	height: 72px;
+}
+.wrap_top .logo_shop {
+	position: absolute;
+	top: 14px;
+	width: 146px;
+	height: 38px;
+	background: url(../img/logo_shop.png) no-repeat;
+}
+/* 进度条 */
+.shop_move {
+	position: relative;
+	width: 494px;
+    height: 24px;
+	background: url(../img/shop_car-2.png) left top repeat-x;
+	margin-top: 18px;  
+}
+.step_now {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 92px;
+	height: 24px;
+	background: url(../img/shop_car_157x23.png) 23px 0 repeat-x;
+}
+.step_num {
+	position: absolute;
+	top: 0px;
+	display: block;
+	width: 70px;
+	height: 23px;
+	text-align: center;
+	line-height: 23px;
+	font-size: 16px;
+	font-weight: bold;
+	color: #fff;
+	z-index: 3;
+}
+.step_desc {
+	position: absolute;
+	top: 30px;
+	display: block;
+	width: 70px;
+	text-align: center;
+	color: #999;
+
+}
+.one_s {
+	left: -25px;
+}
+.two_s {
+	left: 133px;
+}
+.three_s {
+	left: 290px;
+}
+.finish_s {
+	left: 447px;
+}
+.step .icon {
+	height: 23px;
+	background: url(../img/right.png) no-repeat center center;
+}
+
+/* 内容区 */
+.shop_content {
+	margin-top: 30px;
+	background: #fff;
+}
+.shop_car_list {
+	padding-top: 60px;
+	padding-left: 390px;
+	padding-bottom: 80px;
+}
+.pic_shop {
+	display: inline-block;
+	margin-right: 16px;
+}
+.pic_shop {
+	*display: inline;
+}
+.to_see {
+	vertical-align: top;
+	display: inline-block;
+}
+.to_see {
+	*display: inline;
+}
+.empty_car {
+	display: inline-block;
+	vertical-align: middle;
+	width: 145px;
+    height: 165px;
+    margin-left: -170px;
+    margin-top: -40px;
+    margin-right: 36px;
+    background: url(../img/empty_car.png) no-repeat;
+}
+.empty_car {
+	*display: inline;
+}
+.to_see li {
+	line-height: 24px;
+}
+.to_see li em {
+	margin: 0px 5px;
+	line-height: 24px;
+}
+.to_see li a {
+	color: #f69;
+	text-decoration: underline;
+	margin-left: 2px;
+}
+.shop_desc {
+	font-size: 16px;
+	color: #333;
+	margin-bottom: 20px;
+}
+/*底部*/
+.footer_shop {
+	height: 280px;
+	background: #f4f4f4;
+}
+.pic_shop {
+	width: 88px;
+	height: 67px;
+	background: url(../img/icon_sp.png) no-repeat -190px -128px;
+}
+.public_footer {
+	padding-top: 60px;
+	text-align: center;
+	color: #999;
+}
+.public_footer a:hover {
+	color: #f69;
+}
+.footer_list {
+	width: 515px;
+	height: 30px;
+	margin: 0 auto;
+	margin-top: 24px;
+	background: url(../img/footer_list.png) no-repeat;
+}
+

@@ -1,0 +1,36 @@
+@charset "utf-8" ;
+/*基本样式重置*/
+body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,td,img,div,dl,dt,dd,input{ 
+	margin: 0; padding: 0;
+ }
+ body{ font-size: 12px; font-family: Arial; color: #666;}
+ img{ border: none; }
+ li { list-style-type: none; }
+ input,select,textarea { 
+ 	resize: none; 
+ 	border: none;
+ 	outline: 0;
+ 	word-wrap: break-word;
+ }
+ a { text-decoration: none; color: #666; }
+
+/* 重用样式 */
+.wrap {
+	width: 1200px;
+	margin: 0 auto;
+}
+/* 浮动 */
+.f_lt {
+	float: left;
+}
+.f_rt {
+	float: right;
+}
+ /*清除浮动*/
+ .clearfix:after{ content: "" ;display: block; clear: both; }
+ .clearfix { zoom:1; }
+
+ /* 请浮动完整版*/
+ .clearfix:before, .clearfix:after{ content: ""; display:table; }
+ .clear:after{ clear: both; }
+ .clearfix{ *zoom:1; } /*IE6,7*/

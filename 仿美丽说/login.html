@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>登录 - 美丽说</title>
+	<link rel="stylesheet" href="./css/reset.css">
+	<link rel="stylesheet" href="./css/login.css">
+</head>
+<body>
+	<div class="reg_wrap">
+		<div class="head">
+			<div class="logo">
+				<a href="index.html"></a>
+				<h1></h1>
+			</div>
+		</div>
+		<div class="main clearfix">
+			<div class="ad f_lt">
+				<img src="img/login/ad_img.jpg" alt="">
+			</div>
+			<div class="login_form f_rt">
+				<form action="" method="post">
+					<h3>
+						登陆美丽说
+						<a href="register.html">注册</a>
+					</h3>
+					<div class="login_list">
+						<input class="active" id="phone" name="phone" type="text" placeholder="邮箱/手机号/昵称">
+						<span class="msg_err first"></span>
+						<span class="user_icon first"></span>
+						<div class="msg_tip">
+							<span>请输入您的用户名或邮箱</span>
+						</div>
+					</div>
+					<div class="login_list">
+						<input type="password" id="password" name="password" placeholder="密码">
+						<span class="msg_err"></span>
+						<span class="pwd_icon"></span>
+						<div class="msg_tip">
+							<span>请输入密码</span>
+						</div>
+					</div>
+					<div class="login_btn">
+						<input type="submit" value="立即登陆">
+					</div>
+					<div class="rem clearfix">
+						<div class="rememberMe f_lt">
+							<input type="checkbox" name="savestate" id="savestart" checked="checked">
+							<label for="savestate">记住我</label>
+						</div>
+						<div class="forget_pwd f_rt">
+							<a href="">忘记密码?</a>
+						</div>
+					</div>
+					<div class="fast_login clearfix">
+						<h3>无需注册，即可登录</h3>
+						<ul>
+							<li>
+								<i class="qq"></i>
+								<a href="" style="background: #1cadec;">QQ登录</a>
+							</li>
+							<li>
+								<i class="sino"></i>
+								<a href="" style="background: #fb4e56;">微博登录</a>
+							</li>
+							<li>
+								<i class="winxin"></i>
+								<a href="" style="background: #00cb00;">微信登录</a>
+							</li>
+						</ul>
+					</div>
+					<div class="more_login clearfix">
+						<h4 class="f_lt">更多登录方式>></h4>
+						<ul class="f_lt">
+							<li><a href="" class="tencent"></a></li>
+							<li><a href="" class="douban"></a></li>
+							<li><a href="" class="renren"></a></li>
+							<li><a href="" class="baidu"></a></li>
+						</ul>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="js/public.js"></script>
+	<script type="text/javascript" src="js/register.js"></script>
+</body>
+</html>
