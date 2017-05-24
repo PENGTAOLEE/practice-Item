@@ -1,0 +1,834 @@
+/*防止用户自定义背景颜色对网页的影响，添加让用户可以自定义字体 */
+html {
+    background: #f6f6f6;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+/* 内外边距通常让各个浏览器样式的表现位置不同 */
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    margin: 0;
+    padding: 0;
+    color:#666; 
+}
+/* 重设 HTML5 标签, IE 需要在 js 中 createElement(TAG) */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+/* HTML5 媒体文件跟 img 保持一致 */
+audio, canvas, video {
+    display: inline-block; 
+    width: 100%;
+    height: 100%;
+    *display: inline;
+    *zoom: 1;
+}
+/* 要注意表单元素并不继承父级 font 的问题 */
+body, button, input, select, textarea {
+    font: 12px/1.5 "Lantinghei SC",  "Microsoft YaHei", "微软雅黑", "Helvetica Neue", Helvetica, Arial, sans-serif, \5b8b\4f53;
+}
+input, select, textarea {
+    font-size: 100%;
+    border:0;
+    outline: none;
+    -webkit-appearance: none;
+}
+/* 去掉各Table  cell 的边距并让其边重合 */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+/* IE bug fixed:th 不继承 text-align */
+th {
+    text-align: inherit;
+}
+/* 去除默认边框 */
+fieldset, img {
+    border: 0;
+}
+/* ie6 7 8(q) bug 显示为行内表现 */
+iframe {
+    display: block;
+}
+/* 去掉 firefox 下此元素的边框 */
+abbr, acronym {
+    border: 0;
+    font-variant: normal;
+}
+/* 一致的 del 样式 */
+del {
+    text-decoration: line-through;
+}
+address, caption, cite, code, dfn, em, th, var {
+    font-style: normal;
+    font-weight: 500;
+}
+/* 去掉列表前的标识, li 会继承 */
+ol, ul {
+    list-style: none;
+}
+/* 对齐是排版最重要的因素, 别让什么都居中 */
+caption, th {
+    text-align: left;
+}
+/* 来自yahoo, 让标题都自定义, 适应多个系统应用 */
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-weight: 500;
+}
+q:before, q:after {
+    content: '';
+}
+/* 统一上标和下标 */
+sub, sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+sup {
+    top: -0.5em;
+}
+sub {
+    bottom: -0.25em;
+}
+/*限制长按*/
+/** {
+    -webkit-touch-callout:none;
+      -webkit-user-select:none;
+       -khtml-user-select:none;
+         -moz-user-select:none;
+          -ms-user-select:none;
+              user-select:none;
+}*/
+/* 字体当前显示颜色 */
+.fot-ct{
+    color: red;
+}
+a,a:hover,a:active,a:link,a:visited{
+    outline: none;
+}
+/* 默认不显示下划线，保持页面简洁 */
+ins, a {
+    text-decoration: none;
+}
+a{
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    border-radius: 0;
+}
+/* 代码字体 */
+code, kbd, pre, samp {
+    font-family: monospace, serif;
+    font-size: 1em;
+}
+/* 清理浮动 */
+.clearfix:after, .clr:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+img{
+    display: block;
+    border:0;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+.clearfix, .clr {
+    zoom: 1; /* for IE6 IE7 */
+}
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+/* 隐藏, 通常用来与 JS 配合 */
+.color{
+    color: #ad1a1a;
+}
+.hide {
+    display: none;
+}
+/* 单行文字溢出时出现省略号，需设定宽度 */
+.text-overflow{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.text-overflows{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+button{
+    border:0;
+    background-color: none;
+    outline: none;
+}
+.fixed{
+    position: fixed;
+}
+.ab{
+    position: absolute;
+}
+.re{
+    position: relative;
+}
+.vc{
+    vertical-align: middle;
+}
+/* 横边框 */
+.bdr{
+    position: relative;
+}
+.bdr:after{
+    content: " ";
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 1px;
+    bottom: 0;
+    border-right: 1px solid #CCCCCC;
+    color: #CCCCCC;
+    -webkit-transform-origin: 100% 0;
+    transform-origin: 100% 0;
+    -webkit-transform: scaleX(0.5);
+    transform: scaleX(0.5);
+}
+/* 竖边框 */
+.bdb{
+    position: relative;
+}
+.bdb:after{
+    content: " ";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 1px;
+    border-bottom: 1px solid #CCCCCC;
+    color: #CCCCCC;
+    -webkit-transform-origin: 0 100%;
+    transform-origin: 0 100%;
+    -webkit-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+}
+.fz0{
+    font-size:0;
+}
+/* 雪碧图 */
+.shotsprites{
+    background:url(/res/img/shotsprites.png) no-repeat;
+    background-size: 30rem 30rem;
+}
+.footer-bottom a:nth-child(1) .footer-icon{
+    background-position: 0 0;
+}
+.footer-bottom a:nth-child(2) .footer-icon{
+    background-position: -5rem 0;
+}
+.footer-bottom a:nth-child(3) .footer-icon{
+    background-position: -10rem 0;
+}
+.footer-bottom a:nth-child(4) .footer-icon{
+    background-position: -15rem 0;
+}
+/*footer add fuc*/
+#footer-relase .footer-icon{
+    background-position: -20.5rem -20.9rem!important;
+}
+#footer-relase.router-link-active .footer-icon{
+    background-position: -24.4rem -20.9rem!important;
+}
+
+.footer-bottom a:nth-child(1).router-link-active .footer-icon{
+    background-position: -2.5rem 0;
+}
+.footer-bottom a:nth-child(2).router-link-active .footer-icon{
+    background-position: -7.5rem 0;
+}
+.footer-bottom a:nth-child(3).router-link-active .footer-icon{
+    background-position: -12.5rem 0;
+}
+.footer-bottom a:nth-child(4).router-link-active .footer-icon{
+    background-position: -17.5rem 0;
+}
+.shops-footer a:nth-child(1) .abg{
+    background-position: 0 -2.5rem;
+}
+.shops-footer a:nth-child(2) .abg{
+    background-position: -2.1rem -2.5rem;
+}
+.shops-footer a:nth-child(3) .abg{
+    background-position: -4.2rem -2.5rem;
+}
+.shops-footer a:nth-child(4) .abg,
+.shops-footer .link-a .abg{
+    background-position: -6.3rem -2.5rem;
+}
+
+
+.sell-content .con-list .sellbg{
+    background-position: 0 -4.5rem;
+}
+.sell-content .con-list .current{
+    background-position: -2.4rem -4.5rem;
+}
+/*支付*/
+.sell-content .con-list .sellicon-1 {
+    background-position: -9rem -15.7rem;
+}
+.sell-content .con-list .sellicon-2 {
+    background-position: -14.1rem -15.7rem;
+}
+.sell-content .con-list .sellicon-3 {
+    background-position: -19.2rem -15.7rem;
+}
+.to-right{
+    background-position: -22.7rem 0;
+}
+.index-nav-in .photograph{
+    background-position: -9rem -11.3rem;
+}
+.picture-list .video .videobg{
+    background-position: -23.65rem 0;
+}
+.picture-appraisal .appraisal{
+    background-position: -4.8rem -4.5rem;
+}
+.fill-form-con:nth-of-type(1) .fill-icon{
+    background-position: -10rem -6.9rem;
+}
+.fill-form-con:nth-of-type(2) .fill-icon{
+    background-position: -14rem -6.9rem;
+}
+.fill-form-con:nth-of-type(7) .fill-icon{
+    background-position: -18rem -6.9rem;
+}
+.fill-bond .fillbondbg{
+    background-position: -24.3rem -15.7rem;
+}
+.format-header .switch{
+    background-position: 0 -11.3rem;
+}
+.format-header .vertical{
+    background-position: -4.5rem -11.3rem;
+}
+.details-list .likes .likes-list .likesmore{
+     background-position: -19.1rem -11.3rem;
+}
+.find-index .find-nav span{
+    background-position: 0 -6.9rem;
+}
+.find-index .find-nav:nth-child(2) span{
+   background-position: -5rem -6.9rem;
+}
+/* .follow-list .follow-copy .copybtn{
+    background-position: -7.95rem -4.5rem;
+} */
+.follow-list .copy-stop .copybtn{
+    background-position: -10.1rem -2.5rem;
+}
+.follow-list .peoplemore .morebtn{
+    background-position: -14.6rem -11.3rem;
+}
+.follow-list .list-people .morebtn{
+    background-position: -19.1rem -11.3rem;
+}
+.follow-list .follow-author .time span{
+    background-position: -8.4rem -2.5rem;
+}
+.newslist .news-list-con:nth-child(1) .news-list-img{
+    background-position: -4.5rem -15.7rem;
+}
+.newslist .news-list-con:nth-child(2) .news-list-img{
+    background-position: 0 -15.7rem;
+}
+.chat-title .chat-back span{
+    background-position: -21.35rem -1.25rem;
+}
+.chat-list .chat-con .other-bg{
+    background-position: -12.7rem -2.5rem;
+}
+.chat-list .chat-own .other-bg{
+    background-position: -14.9rem -2.5rem;
+}
+.arrow-down {
+    background-position: -5.4rem -20.2rem;
+}
+/* .index-hot-list .img-explain .imgbrowse span{首页浏览
+    background-position: -11.2rem -2.5rem;
+}
+.index-hot-list .img-explain .imglike span{
+    background-position: -20rem 0;
+}
+.index-hot-list .img-explain .imglike .curspan{
+    background-position: -21.35rem 0;
+} */
+.backtop{
+    width:3.5rem;
+    height: 3.5rem;
+    right: 1rem;
+    bottom: 7rem;
+    background-position: -23.6rem -11.3rem;
+    z-index: 10;
+    display: none;
+}
+
+/*footer 小红点*/
+.red_dot {
+    position: absolute;
+    top: .4rem;
+    right: 3rem;
+    width: .6rem;
+    height: .6rem;
+    border-radius: 50%;
+    background-color: #AD1A1A;
+}
+
+/* 灰度 */
+.grey {
+    background-color: #818493 !important;
+}
+
+
+/* 下拉刷新 */
+.loading{
+    height: 2.5rem;
+    width: 100%;
+    margin-bottom: 5rem;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 1.4rem;
+    color: #666;
+    line-height: 2.5rem;
+}
+.loading img{
+    margin:0 auto;
+    width: 2.5rem;
+    height: 2.5rem;
+    /*display: none;*/
+}
+.loading p{
+   /*  display: inline-block; */
+    display: none;
+}
+/* 底部距离 */
+.bottom-distance{
+    
+}
+.imgbrowse,.imglike{
+    font-size: 1.2rem;
+    height: 3rem;
+    line-height: 3rem;
+}
+/* 浏览量 */
+.imgbrowse{
+    padding-left: 1.7rem;
+    background-image: url(/res/img/browse.png);
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: 1.4rem 1rem;
+}
+/* 点赞 */
+.imglike{
+    padding:0 1.25rem 0 2.75rem;
+    background-image: url(/res/img/like.png);
+    background-position: 0.75rem center;
+    background-repeat: no-repeat;
+    background-size: 1.35rem 1.25rem;
+}
+.imglikecur{
+    background-image: url(/res/img/likecur.png)!important;
+}
+/* 背景图 */
+.divbg{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.ovferyhtml{
+    height: 100%;
+    overflow: hidden;
+}
+/* 底部导航 */
+.footer-bottom{
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(255,255,255,0.96);
+    z-index: 11;
+    border-top: 1px solid #c2c2c4;
+}
+.footer-bottom a{
+    position: relative;
+    width: 25%;
+    height: 5rem;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #333;
+}
+.footer-bottom .router-link-active p{
+    color: #ad1a1a;
+}
+.footer-bottom .footer-icon{
+    width: 2.5rem;
+    height: 2.5rem;
+    margin:0.5rem auto 0;
+}
+.footer-bottom .footer-icon .new-message{/* 有消息时显示 */
+    right: -0.3rem;
+    top: -1px;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background-color: #ad1a1a;
+    display: none;
+}
+.cc {zoom: 1;}
+.cc:after {content: '.';display: block;clear: both;visibility: hidden;height: 0px;}
+.c {clear: both;font: 0px/0px Arial;overflow: hidden;height: 0;width: 0;}
+
+/* 默认弹窗样式 */
+#show-alert {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 15;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.4);
+}
+#alert-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate3d(-50%,-50%,0);
+            transform: translate3d(-50%,-50%,0);
+    width: 24rem;
+    min-height: 12.2rem;
+    background: #fff;
+    border-radius: .5rem;
+    text-align: center;
+    font-size: 1.4rem;
+}
+#alert-content {
+    width: 100%;
+    min-height: 8.2rem;
+    padding: 3rem 1rem;
+    border-bottom: 1px solid #e5e5e5;
+    color: #333;
+}
+#alert-footer {
+    width: 100%;
+    height: 3.9rem;
+    line-height: 3.9rem; 
+}
+#alert-confirm {
+    color: #6699ff;
+}
+
+/* 后台 icon图 */
+.icon-s_admin{
+    background:url(../img/icon-s_admin.png) no-repeat;
+    display: inline-block;
+
+    /*background-size:7rem 71.1rem;*/
+    }
+.icon-s_content{
+    background:url(../img/centerContent.png) no-repeat;
+    display: inline-block;
+    background-size: 2.6rem 17.55rem;
+    /*background-size:7rem 71.1rem;*/
+}
+/* 卖家中心 icon */
+.icon-s_content_seller{
+    background:url(../img/seller_icon.png) no-repeat;
+    display: inline-block;
+    background-size: 2.6rem 17.55rem;
+    /*background-size:7rem 71.1rem;*/
+}
+
+.icon-exclamationPoint{height:3.55rem;width:.6rem;background-position:0 0;}
+
+
+/*箭头图标*/
+.icon-more{
+    height: 24px;
+    width: 14px;
+    background-position:0 -71px;
+}
+/*箭头图标*/
+
+
+.icon-billHistory_nav{display: inline-block; height:1.35rem;width:1.4rem;background-position:-17.65rem -21.9rem;}
+.icon-billHistory_triangle{height:1.05rem;width:2.1rem;background-position:0 -6.1rem;}
+.icon-checkbox{height:2.2rem;width:2.2rem;background-position:0 -7.15rem;}
+/* 设置按钮 */
+.icon-set{
+    height:44px;
+    width:44px;
+    background-position:0 -187px;
+}
+/* 设置按钮*/
+.icon-checkbox_active{height:2.2rem;width:2.2rem;background-position:0 -11.55rem;}
+/* 售后 */
+.icon-afterSale{
+    height: 47px;
+    width: 48px;
+    background-position:0 -274px;
+}
+/* 售后 */
+/* 未收货 */
+.icon-notReceiving{
+    height: 48px;
+    width: 50px;
+    background-position:0 -320px;
+}
+/* 未收货 */
+/*   未收款*/
+.icon-arrearage{
+    height:48px;width:54px;
+    background-position:0 -367px;
+}
+/*  未收款 */
+/* 待发货*/
+.icon-sendGoods{
+    height:48px;
+    width: 57px;
+    background-position:0 -412px;
+}
+/* 代发货*/
+.icon-upload{height:3.9rem;width:3.9rem;background-position:0 -24.6rem;}
+.icon-weui{height:4.9rem;width:4.9rem;background-position:0 -26.85rem;}
+.icon-bankCard{height:4.9rem;width:4.9rem;background-position:0 -31.75rem;}
+.icon-withdraw{height:7rem;width:7rem;background-position:0 -36.65rem;}
+.icon-balanceRecharge{display: block; height:5rem;width:5rem;background-position:-9.1rem -15.7rem;}
+.icon-plaint{height:5rem;width:5rem;background-position:0 -1014px;}
+/*余额图标*/
+.icon-balance{
+    height: 2.6rem;
+    width: 2.6rem;
+    background-position: 0 -0.7rem;
+}
+/*余额图标*/
+/*参拍拍品*/
+.icon-auction{
+    height: 2.6rem;
+    width: 2.6rem;
+    background-size: 100%;
+    background-position: 0 -5.9rem;}
+/*参拍拍品*/
+/*我的关注*/
+.icon-attention{
+    height: 2.6rem;
+    width: 2.6rem;
+    background-size: 100%;
+    background-position: 0rem -10.75rem;
+}
+/*我的关注*/
+.icon-sellerCenter{
+    height: 2.6rem;
+    width: 2.6rem;
+    background-size: 100%;
+    background-position: 0rem -16.9rem;
+}
+/*我的关注*/
+.icon-s_order{
+    background:url(../img/shotsprites.png) no-repeat;
+    display: inline-block;
+    /*background-size:7rem 71.1rem;*/
+}
+/*卖家中心*/
+.icon-balance-buyer {
+    width: 2.6rem;
+    height: 2.6rem;
+    background-position: 0 0;
+    background-size: 100%;
+}
+.icon-auction-buyer {
+    width: 2.6rem;
+    height: 2.6rem;
+    background-position: 0 -5rem;
+    background-size: 100%;
+}
+.icon-attention-buyer {
+    width: 2.6rem;
+    height: 2.6rem;
+    background-position: 0 -9.35rem;
+    background-size: 100%;
+}
+.icon-sellerCenter-seller {
+    width: 2.6rem;
+    height: 2.6rem;
+    background-position: 0 -14.4rem;
+    background-size: 100%;
+}
+/*余额页面图片*/
+.balance-index-icon {
+    background-image:url(../img/balance_icon.png);
+    display: inline-block;
+    background-size: 2.6rem 17.55rem;
+}
+.icon-balance-balance,
+.icon-auction-balance,
+.icon-attention-balance,
+.icon-sellerCenter-balance {
+    width: 2.6rem;
+    height: 2.6rem;
+    background-size: 100%;
+}
+.icon-auction-balance {
+    background-position: 0rem -4.9rem;
+}
+.icon-balance-balance {
+    background-position: 0rem 0rem;
+}
+.icon-attention-balance {
+    background-position: 0rem -9rem;
+}
+.icon-sellerCenter-balance {
+    background-position: 0rem -14rem;
+}
+/*打电话*/
+.icon-phone{
+    height:44px;
+    width:44px;
+    background-position:-63px -430px;
+}
+/*打电话*/
+/*列表列表用户图标*/
+.icon-username{
+    height:44px;
+    width:44px;
+    background-position:0 -430px;}
+/*列表用户图标*/
+.icon-service{height:2.3rem;width:2.75rem;background-position:0 -67.3rem;}
+.icon-address{height:1.5rem;width:1.1rem;background-position:0 -69.6rem;}
+
+/* 公共样式 */
+.foot-current {
+    /*color: #ad1a1a;*/
+}
+    
+/*懒加载img*/
+.js_picLazy {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate3D(-50%,-50%,0);
+    -ms-transform: translate3D(-50%,-50%,0);
+    -o-transform: translate3D(-50%,-50%,0);
+    transform: translate3D(-50%,-50%,0);
+    width: 64%;
+    height: auto;
+    /*display: none;*/
+}
+
+/*首屏加载*/
+#app {
+    /*display: none;*/
+}
+.loading-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    /*padding-top: 50px;*/
+    font-size:1.6rem;
+    text-align:center;
+}
+.loading-box .loading-cell {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    -webkit-transform: transition3d(-50%,-50%,0);
+            transform: translate3d(-50%,-50%,0);
+}
+
+/* 视频样式 */
+.video-box {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.video-play,
+.video-play-rectangle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /*background-color: rgba(0,0,0,.3);*/
+}
+.video-play {
+    background: url(/res/img/videobg.png) no-repeat center center;
+    background-size: 100% auto;
+}
+.video-play-rectangle {
+    /*background-size: 100% auto;*/
+} 
+/* 视频播放按钮 */
+.video-play-rectangle-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate3D(-50%,-50%,0);
+    -ms-transform: translate3D(-50%,-50%,0);
+    -o-transform: translate3D(-50%,-50%,0);
+    transform: translate3D(-50%,-50%,0);
+    display: block;
+    width: 5rem;
+    height: 5rem;
+    background-position: -4.5rem -24.4rem;
+}
+
+/* 切换效果 */
+.pages-enter-active {
+    -webkit-animation: pages-in .5s;
+            animation: pages-in .5s;
+}
+.pages-leave-active {
+    -webkit-animation: pages-out 0s;
+            animation: pages-out 0s;
+}
+
+@keyframes pages-in {
+    0% {
+        -webkit-transform: translate3D(100%,0,0);
+                transform: translate3D(100%,0,0);
+    }
+    /*50% {
+        transform: translateX(-50%);
+    }*/
+    100% {
+        -webkit-transform: translate3D(0%,0,0);
+                transform: translate3D(0%,0,0);
+    }
+}
+
+@keyframes pages-out {
+    0% {
+        -webkit-transform: translate3D(0%,0,0);
+                transform: translate3D(0%,0,0);
+    }
+    /*50% {
+        transform: translateX(50%);
+    }*/
+    100% {
+        -webkit-transform: translate3D(-100%,0,0);
+                transform: translate3D(-100%,0,0);
+    }
+}
+
