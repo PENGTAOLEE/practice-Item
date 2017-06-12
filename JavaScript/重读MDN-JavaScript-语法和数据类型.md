@@ -151,6 +151,57 @@ x(6); // 11
 y(7); // 27
 {% endhighlight %}
 
+## 内存泄漏
+使用闭包的一个坏处是，在 IE 浏览器中它会很容易导致内存泄露。JavaScript 是一种具有垃圾回收机制的语言——对象在被创建的时候分配内存，然后当指向这个对象的引用计数为零时，浏览器会回收内存。宿主环境提供的对象都是按照这种方法被处理的。
+
+在 IE 中，每当在一个 JavaScript 对象和一个本地对象之间形成循环引用时，就会发生内存泄露。如下所示：
+{% highlight javascript %}
+function leakMemory() {
+    var el = document.getElementById('el');
+    var o = { 'el': el };
+    el.o = o;
+}   
+{% endhighlight %}
+这段代码的循环引用会导致内存泄露：IE 不会释放被 el 和 o 使用的内存，直到浏览器被彻底关闭并重启后
+
+闭包很容易发生无意识的内存泄露。如下所示:
+{% highlight javascript %}
+function addHandler() {
+    var el = document.getElementById('el');
+    el.onclick = function() {
+        el.style.backgroundColor = 'red';
+    }
+} 
+{% endhighlight %}
+对 el 的引用不小心被放在一个匿名内部函数中。这就在 JavaScript 对象（这个内部函数）和本地对象之间（el）创建了一个循环引用。
+
+这个问题有很多种解决方法，最简单的一种是不要使用 el 变量：
+{% highlight javascript %}
+function addHandler(){
+    document.getElementById('el').onclick = function(){
+        this.style.backgroundColor = 'red';
+    };
+}
+{% endhighlight %}
+
+#### 有趣的是，有一种窍门解决因闭包而引入的循环引用，是添加另外一个闭包：
+{% highlight javascript %}
+function addHandler() {
+    var clickHandler = function() {
+        this.style.backgroundColor = 'red';
+    };
+    (function() {
+        var el = document.getElementById('el');
+        el.onclick = clickHandler;
+    })(); 
+}
+{% endhighlight %}
+内部函数被直接执行，并在 clickHandler 创建的闭包中隐藏了它的内容.
+
+
+另外一种避免闭包的好方法是在 window.onunload 事件发生期间破坏循环引用。
+
+
 
 ## 其他类型
 JavaScript中`null`和 `undefined`是不同的
@@ -180,6 +231,7 @@ JavaScript有三种声明变量
 > var allowed = (age > 18) ? "yes" : "no";
 
 在需要多重分支时可以使用  基于一个数字或字符串的switch 语句：
+
 {% highlight javascript %}
 // 在 switch 的表达式和 case 的表达式是使用 === 严格相等运算符进行比较的
 switch(a) {
@@ -191,3 +243,6 @@ switch(a) {
         doNothing();
 }
 {% endhighlight %}
+
+
+
