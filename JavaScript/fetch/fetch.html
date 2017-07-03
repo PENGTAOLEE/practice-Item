@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Access-Control-Allow-Origin" content="*" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Fetch</title>
+</head>
+<body>
+  <script>
+
+    fetch('http://api.douban.com/v2/movie/top250',{mode: "no-cors"})
+    .then(function(response) {
+      document.body.innerHTML = response;
+      return response;
+    }).then(function(data){
+      console.log( data )
+    })
+    .catch(function(error) {
+      console.log(error.message);
+    });
+
+    // var word = '七月',
+    //     url = 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd='+word+'&json=1&p=3';
+    // fetch(url,{mode: "no-cors"}).then(function(response) {
+    //   return response;
+    // }).then(function(data) {
+    //   console.log(data);
+    // }).catch(function(e) {
+    //   console.log("Oops, error");
+    // });
+  </script>
+</body>
+</html>
