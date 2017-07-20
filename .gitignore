@@ -1,4 +1,6 @@
 ﻿#not push
+.DS_Store
+yarn.lock
 HammerJS手势库
 SemanticUi/node_modules/
 

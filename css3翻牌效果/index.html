@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Css3实现翻牌效果</title>
+	<link href="css/animate.css" rel="stylesheet">
+	<style>
+		.box {
+			width: 200px;
+			height: 200px;
+			padding-top: 30px;
+			padding-bottom: 30px;
+			margin-left: auto;
+			margin-right: auto;
+			position: relative;
+		}
+		.list {
+			position: absolute;
+		}
+	</style>
+	<script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.js"></script>
+</head>
+<body>
+	<div class="box viewport-flip" title="点击翻面">
+		<a href="javascript:;" class="list flip out"><img src="images/zhibiao-pic-1.png" alt="纸牌正面"/></a>
+		<a href="javascript:;" class="list flip"><img src="images/zhibiao-pic-11.png" alt="纸牌背面"/></a>
+	</div>
+	<!-- <div class="box viewport-flip" title="点击翻面">
+		<a href="javascript:;" class="list flip out"><img src="images/puke-back.png" alt="纸牌正面"/></a>
+		<a href="javascript:;" class="list flip"><img src="images/puke-k.png" alt="纸牌背面"/></a>
+	</div> -->
+	
+<script>
+	var isAnimate = false;
+	$(".box").bind("click", function () {
+		// 切换的顺序如下
+		// 1. 当前在前显示的元素翻转90度隐藏, 动画时间225毫秒
+		// 2. 结束后，之前显示在后面的元素逆向90度翻转显示在前
+		// 3. 完成翻面效果
+		if (isAnimate) {
+			return;
+		}
+
+		isAnimate = true;
+		var $this = $(this),
+			eleBack = $this.find(".out"),
+			eleFront = $(this).find(":not(.out)");
+
+		eleFront.addClass("out").removeClass("in");
+		setTimeout(function () {
+			eleBack.addClass("in").removeClass("out");
+			isAnimate = false;
+		}, 225);
+		return false;
+	});
+</script>
+</body>
+</html>
