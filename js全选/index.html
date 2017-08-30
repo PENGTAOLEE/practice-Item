@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Js全选</title>
+</head>
+<body>
+	<label for="all">
+		<input id="all" type="checkbox"/>全选
+	</label>
+
+	<div id="items">
+		<label><input type="checkbox" />1</label> <br/>
+		<label><input type="checkbox" />2</label> <br/>
+		<label><input type="checkbox" />3</label> <br/>
+		<label><input type="checkbox" />4</label> <br/>
+		<label><input type="checkbox" />5</label> <br/>
+	</div>
+
+	<script type="text/javascript">
+		window.onload = function() {
+			const selectAll = document.getElementById('all');
+			const oList = document.getElementById('items')
+			const oInput = oList.getElementsByTagName('input')
+
+			// 全选
+			selectAll.onclick = function() {
+				for (var i = 0; i < oInput.length; i++) {
+					oInput[i].checked = this.checked;
+				};
+			}
+
+			// 单选时只要有一个未选中就判定为不全选
+			for (var i = 0; i < oInput.length; i++) {
+				oInput[i].onclick = function() {
+
+					// 默认是全选
+					let flag = true;
+					
+					if( !this.checked ) {
+						selectAll.checked = false;
+					}
+
+					for (var i = 0; i < oInput.length; i++) {
+						if (!oInput[i].checked) {
+							flag = false;
+							break;
+						};	
+					};
+
+					if (flag) {
+						selectAll.checked = true;	
+					};
+				}
+			};
+		}
+	</script>
+</body>
+</html>
