@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Js |键盘按键游戏</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/animate.css">
+	<style type="text/css">
+		body {
+			background: #fff url('./img/bg.jpg') repeat;
+		}
+
+		header,
+		footer {
+			text-align: center;
+			color: #fff;
+		}
+
+		footer {
+			position: fixed;
+			left: 50%;
+			bottom: 10px;
+			transform: translateX(-50%);
+			font-size: 14px;
+		}
+
+		main {
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #eee;
+      box-shadow: 0 0 10px #ddd;
+      border-radius: 50%;
+    }
+
+    #wrap {
+      height: 100px;
+      line-height: 100px;
+      text-align: center;
+      font-size: 32px;
+      color: #ad1a1a;
+    }
+	</style>
+</head>
+<body>
+	<header>
+		<h4>根据屏幕上出现的数字按下键盘</h4>
+		<div id="result">
+			您的成绩：
+		</div>
+	</header>
+	
+	<main>
+		 <div id="wrap" class="animated rubberBand">69</div>
+	</main>
+
+	<footer>
+		一个人要安于自己的灵魂.
+	</footer>
+	<script type="text/javascript">
+		/*
+		1. 生成随机数
+		2. 键盘事件如果与屏幕显示的数字一致 就通过 得分
+		3. 把随机数渲染到页面
+		 */ 
+		(function(doc){
+			/**
+			 * 元素选择
+			 * @param  {string} selector 元素的标签、id、class
+			 * @return {object} 选中元素的集合
+			 */
+			function $(selector) {
+				return doc.querySelectorAll(selector)
+			}
+
+			class Typer {
+				constructor(doms) {
+					this.correct = 0;
+          this.error = 0;
+					this.num = null;
+					this.showDom = $(doms.target)[0];
+					this.userInput = [];
+					this.length = -1;
+					this.resultDom = $(doms.result)[0];
+					this.keyUpEvent();
+					this.render(doms)
+				}
+
+				random() {
+					this.num = Math.floor(Math.random() * 100);
+					this.length = String(this.num).length;
+					this.showDom.innerHTML = this.num;
+					this.userInput = [];
+				}
+
+				keyUpEvent() {
+					doc.body.addEventListener('keyup', (e) => {
+						const key = e.key.toUpperCase();
+						this.userInput.push(key)
+
+						// 如果不符合目标长度 退出
+						if(this.userInput.length !== this.length) {
+							return;
+						}
+
+						if(this.userInput.join('') === String(this.num)) {
+							this.showDom.className = 'animated jello';
+							this.random();
+							this.correct++;
+							this.render();
+						} else {
+							alert('fails')
+              this.showDom.className = 'animated shake error';
+              this.random();
+              this.error++;
+              this.render();
+            }
+
+            setTimeout(() => {
+              this.showDom.className = 'animated';
+            }, 500);
+					})
+				}
+
+				render(doms) {
+					console.log(this.correct + '/' + this.error)
+					const total = this.correct + this.error;
+          const p = (this.correct / total) * 100 || 0;
+          this.resultDom.innerHTML = `答对了<span style="color:#ad1a1a">${this.correct}</span>题,答错了<span style="color:#ad1a1a">${this.error}</span>题,正确率<span style="color:#ad1a1a">${p.toFixed(2)}%</span>`;
+				}
+			}
+			window.Typer = Typer;
+		})(document)	
+
+		new Typer({
+			target: '#wrap',
+      result: '#result'
+		}).random();
+	</script>
+</body>
+</html>
