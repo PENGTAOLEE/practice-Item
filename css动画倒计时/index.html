@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>CSS | 动画倒计时</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/animate.css">
+	<style type="text/css">
+		body {
+			background: #fff url('./img/bg.jpg') repeat;
+		}
+
+		header,
+		footer {
+			text-align: center;
+			color: #fff;
+		}
+
+		footer {
+			position: fixed;
+			left: 50%;
+			bottom: 10px;
+			transform: translateX(-50%);
+			font-size: 14px;
+		}
+
+		main {
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #eee;
+      box-shadow: 0 0 10px #ddd;
+      border-radius: 50%;
+    }
+
+    #wrap {
+      height: 100px;
+      line-height: 100px;
+      text-align: center;
+      font-size: 32px;
+      color: #ad1a1a;
+    }
+	</style>
+</head>
+<body>
+	<header>
+		<h4>请设置倒计时时间(s)</h4>
+		<input type="text" />
+		<button>开始</button>
+	</header>
+	
+	<main>
+		 <div id="wrap" class="animated rubberBand">1</div>
+	</main>
+
+	<footer>
+		所有美好的事物我都要看上两遍.
+	</footer>
+	<script type="text/javascript">
+		console.log(11)
+	</script>
+</body>
+</html>

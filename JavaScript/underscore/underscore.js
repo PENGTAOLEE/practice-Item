@@ -1,3 +1,4 @@
+//     @ 翻译
 //     Underscore.js 1.8.3
 //     http://underscorejs.org
 //     (c) 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
@@ -5,46 +6,46 @@
 
 (function() {
 
-  // Baseline setup
+  // 基本的一些定义
   // --------------
 
-  // Establish the root object, `window` in the browser, or `exports` on the server.
+  // underscore既支持浏览器运行 又支持服务器运行
+  // 建立根对象, `window` in the browser, or `exports` on the server.
   var root = this;
 
-  // Save the previous value of the `_` variable.
+  // 保存系统之前存在的变量 `_` .
   var previousUnderscore = root._;
 
-  // Save bytes in the minified (but not gzipped) version:
-  var ArrayProto = Array.prototype, ObjProto = Object.prototype, FuncProto = Function.prototype;
+  // 保存常用原型的引用, 避免对象属性的查找开销
+  var ArrayProto = Array.prototype, 
+      ObjProto = Object.prototype, 
+      FuncProto = Function.prototype;
 
-  // Create quick reference variables for speed access to core prototypes.
-  var
-    push             = ArrayProto.push,
-    slice            = ArrayProto.slice,
-    toString         = ObjProto.toString,
-    hasOwnProperty   = ObjProto.hasOwnProperty;
+  // 保存常用方法的引用，避免属性查找的性能开销
+  var push             = ArrayProto.push,
+      slice            = ArrayProto.slice,
+      toString         = ObjProto.toString,
+      hasOwnProperty   = ObjProto.hasOwnProperty;
 
-  // All **ECMAScript 5** native function implementations that we hope to use
-  // are declared here.
-  var
-    nativeIsArray      = Array.isArray,
-    nativeKeys         = Object.keys,
-    nativeBind         = FuncProto.bind,
-    nativeCreate       = Object.create;
+  // **ECMAScript 5** 原生方法.
+  var nativeIsArray      = Array.isArray,
+      nativeKeys         = Object.keys,
+      nativeBind         = FuncProto.bind,
+      nativeCreate       = Object.create;
 
-  // Naked function reference for surrogate-prototype-swapping.
+  // constructor 这个空构造函数将在之后广泛用于对象创建.
   var Ctor = function(){};
 
   // Create a safe reference to the Underscore object for use below.
+  // 为underscore创建一个安全的对象引用，保证不重复创建
   var _ = function(obj) {
     if (obj instanceof _) return obj;
     if (!(this instanceof _)) return new _(obj);
     this._wrapped = obj;
   };
 
-  // Export the Underscore object for **Node.js**, with
-  // backwards-compatibility for the old `require()` API. If we're in
-  // the browser, add `_` as a global object.
+  // 为**Node.js**导出Underscore对象，为老的`require()`API提供向后兼容. 
+  // 如果在浏览器环境 添加 `_`作为全局环境.
   if (typeof exports !== 'undefined') {
     if (typeof module !== 'undefined' && module.exports) {
       exports = module.exports = _;
@@ -60,21 +61,37 @@
   // Internal function that returns an efficient (for current engines) version
   // of the passed-in callback, to be repeatedly applied in other Underscore
   // functions.
+  /**
+   * 优化回调[特指函数中传入的回调]
+   * @param  func     待优化回调函数
+   * @param  context  执行上下文
+   * @param  argCount 参数个数
+   * @return 
+   */
   var optimizeCb = function(func, context, argCount) {
+    // void 0 会返回纯正的undefined,这样做避免undefined已经被污染带来的判定失效
     if (context === void 0) return func;
-    switch (argCount == null ? 3 : argCount) {
-      case 1: return function(value) {
-        return func.call(context, value);
-      };
-      case 2: return function(value, other) {
-        return func.call(context, value, other);
-      };
-      case 3: return function(value, index, collection) {
-        return func.call(context, value, index, collection);
-      };
-      case 4: return function(accumulator, value, index, collection) {
-        return func.call(context, accumulator, value, index, collection);
-      };
+
+    switch (argCount == null ? 3 : argCount) {// 我一直不知道这里还可以用表达式。。。
+      // 回调参数为1时, 即迭代过程中,我们只需要值
+      case 1: 
+        return function(value) {
+          return func.call(context, value);
+        };
+      case 2: 
+        return function(value, other) {
+          return func.call(context, value, other);
+        };
+      // 3个参数(值,索引,被迭代集合对象)
+      case 3: 
+        return function(value, index, collection) {
+          return func.call(context, value, index, collection);
+        };
+      // 4个参数(累加器(比如reducer需要的), 值, 索引, 被迭代集合对象)
+      case 4: 
+        return function(accumulator, value, index, collection) {
+          return func.call(context, accumulator, value, index, collection);
+        };
     }
     return function() {
       return func.apply(context, arguments);
@@ -85,20 +102,32 @@
   // to each element in a collection, returning the desired result — either
   // identity, an arbitrary callback, a property matcher, or a property accessor.
   var cb = function(value, context, argCount) {
+    // 如果value不存在，则回调只是一个返回自身的函数
     if (value == null) return _.identity;
+
+    // 如果value是一个回调函数，则需要优化
     if (_.isFunction(value)) return optimizeCb(value, context, argCount);
+
+    // 如果value是个对象, 则返回一个matcher进行对象匹配
     if (_.isObject(value)) return _.matcher(value);
+
+    // 如果value只是一个字面量, 则把value看做是属性名称, 返回一个对应的属性获得函数
     return _.property(value);
   };
+
+  // 待理解
   _.iteratee = function(value, context) {
     return cb(value, context, Infinity);
   };
 
-  // An internal function for creating assigner functions.
+  // 创建一个内部函数分配器功能. [不理解]
   var createAssigner = function(keysFunc, undefinedOnly) {
     return function(obj) {
       var length = arguments.length;
+
+      // 为什么直接return obj
       if (length < 2 || obj == null) return obj;
+
       for (var index = 1; index < length; index++) {
         var source = arguments[index],
             keys = keysFunc(source),
@@ -113,15 +142,26 @@
   };
 
   // An internal function for creating a new object that inherits from another.
+  // 用于创建从另一个对象继承的新对象的内部函数
   var baseCreate = function(prototype) {
+    // 如果传入的不是对象 返回空对象
     if (!_.isObject(prototype)) return {};
+
+    // 如果存在原生的 Object.create() 则用原生对象进行创建
     if (nativeCreate) return nativeCreate(prototype);
+
+    // 否则 创建一个空函数，临时设置对象原型
     Ctor.prototype = prototype;
     var result = new Ctor;
     Ctor.prototype = null;
     return result;
   };
 
+  /**
+   * 获取对象的属性
+   * @param  key 对象键名
+   * @return 对应key的键值
+   */
   var property = function(key) {
     return function(obj) {
       return obj == null ? void 0 : obj[key];
@@ -132,29 +172,49 @@
   // should be iterated as an array or as an object
   // Related: http://people.mozilla.org/~jorendorff/es6-draft.html#sec-tolength
   // Avoids a very nasty iOS 8 JIT bug on ARM-64. #2094
+
+  // 最大数组长度 避免IOS 8出现的bug
   var MAX_ARRAY_INDEX = Math.pow(2, 53) - 1;
+
+  // 获取对象长度
   var getLength = property('length');
+
+  /**
+   * 判断传入的集合是否是类数组的
+   * @param  collection 集合对象
+   * @return {Boolean}            [description]
+   */
   var isArrayLike = function(collection) {
+    // 通过传入的集合是否有length元素来判断类数组集合
     var length = getLength(collection);
     return typeof length == 'number' && length >= 0 && length <= MAX_ARRAY_INDEX;
   };
 
-  // Collection Functions
+  // 集合【数组】方法
   // --------------------
 
-  // The cornerstone, an `each` implementation, aka `forEach`.
-  // Handles raw objects in addition to array-likes. Treats all
-  // sparse array-likes as if they were dense.
+  /**
+   * each方法将ES5的forEach换为函数表达式
+   * @param  obj      待迭代集合
+   * @param  iteratee 迭代过程中每个被迭代元素的回调函数
+   * @param  context  执行上下文
+   * @return 操作后的集合
+   */
   _.each = _.forEach = function(obj, iteratee, context) {
+    // 包装回调过程
     iteratee = optimizeCb(iteratee, context);
+
     var i, length;
-    if (isArrayLike(obj)) {
+
+    if (isArrayLike(obj)) { // 类数组集合
       for (i = 0, length = obj.length; i < length; i++) {
+        // 数组的迭代回调传入三个参数(迭代值, 迭代索引, 迭代对象)
         iteratee(obj[i], i, obj);
       }
-    } else {
+    } else { // 对象
       var keys = _.keys(obj);
       for (i = 0, length = keys.length; i < length; i++) {
+        // 仍然为迭代回调传入三个参数（迭代值 迭代key,迭代对象）
         iteratee(obj[keys[i]], keys[i], obj);
       }
     }
@@ -162,17 +222,31 @@
   };
 
   // Return the results of applying the iteratee to each element.
+  // return 为集合的每个元素应用迭代回调之后的结果
   _.map = _.collect = function(obj, iteratee, context) {
-    iteratee = cb(iteratee, context);                  // 处理成函数
-    var keys = !isArrayLike(obj) && _.keys(obj),       // key值
+    // optimizeCb() 与 cb()的区别 ？？？
+    iteratee = cb(iteratee, context);
+
+    // 类型检测
+    var keys = !isArrayLike(obj) && _.keys(obj),
         length = (keys || obj).length,
-        results = Array(length);                       // 返回值是一个数组
+        results = Array(length);
+    // 对每个元素执行迭代回调然后数据保存到 results    
     for (var index = 0; index < length; index++) {
       var currentKey = keys ? keys[index] : index;
       results[index] = iteratee(obj[currentKey], currentKey, obj);
     }
     return results;
   };
+  // =================================================分割线===============================================
+  
+
+
+
+
+
+
+
 
   // Create a reducing function iterating left or right.
   function createReduce(dir) {
