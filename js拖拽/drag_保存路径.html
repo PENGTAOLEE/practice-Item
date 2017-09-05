@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>拖拽 | 记录路径</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;	
+		}
+		
+		#trigger {
+			margin: 10px;
+			padding: 3px 10px;
+			border-radius: 3px;
+			cursor: pointer;
+		}
+
+		#drag-ele {
+			position: absolute;
+			display: inline-block;
+			min-width: 100px;
+			height: 100px;
+			padding: 30px;
+			border-radius: 10px;
+			text-align: center;
+			line-height: 100px;
+			background-color: #ccc;
+			cursor: pointer;
+			color: purple;
+		}
+	</style>
+</head>
+<body>
+	<button id="trigger">回退</button>
+	<div id="drag-ele">
+		哈哈哈~
+	</div>
+
+	<script type="text/javascript">
+		// 获取元素
+		function $(ele) {
+			return document.querySelector(ele)
+		} 
+
+		// 检测空对象、空数组
+		function isEmpty(obj){
+			return JSON.stringify(obj) === '[]';
+		}
+
+		var btn = $('#trigger');
+		var box = $('#drag-ele');
+		var arr = [];
+
+		box.onmousedown = function(e){
+			var ev = e || window.event;
+			var posX = ev.clientX - box.offsetLeft;
+			var posY = ev.clientY - box.offsetTop;
+			
+			document.onmousemove = function(e) {
+				var ev = ev || window.event;
+				var left = ev.clientX - posX;
+				var top = ev.clientY - posY;
+				box.style.left = left + 'px';
+				box.style.top = top + 'px';
+				arr.push({
+					left: left,
+					top: top
+				})
+			}
+
+			document.onmouseup = function() {
+				this.onmousemove = null;
+			}
+		}
+
+		btn.onclick = function() {
+			let i = 0,
+					timer = null;
+			arr.reverse();
+			if ( !isEmpty(arr) ) {
+				timer = setInterval( () => {
+					box.style.left = arr[i].left + 'px';
+					box.style.top = arr[i].top + 'px';
+					i++
+					if(i == arr.length) {
+						clearInterval(timer);
+						arr = []
+					}
+				},20)
+			}
+		}
+	</script>
+</body>
+</html>

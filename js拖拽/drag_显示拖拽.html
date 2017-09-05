@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>拖拽 | 显示虚线</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		#box {
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			background: #000;
+			cursor: pointer;
+		}
+
+		.pox {
+			position: absolute;
+			border: 1px dashed #000;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	<div class="pox"></div>
+
+	<script type="text/javascript">
+		var box = document.getElementById('box');
+		var winW = document.documentElement.clientWidth || document.body.clientWidth;
+		var winH = document.documentElement.clientHeight || document.body.clientHeight;
+
+		box.onmousedown = function(e) {
+			e.preventDefault();
+			var ev = e || window.event;
+			var posX = ev.clientX - box.offsetLeft;
+			var posY = ev.clientY - box.offsetTop;
+
+			var pox = document.createElement('div');
+			pox.className = 'pox';
+			pox.style.width = box.offsetWidth + 'px';
+			pox.style.height = box.offsetHeight + 'px';
+			pox.style.left = box.offsetLeft + 'px';
+			pox.style.top = box.offsetTop + 'px';
+			document.body.appendChild(pox);
+
+			document.onmousemove = function(e) {
+				var ev = e || window.event;
+
+				var left = ev.clientX - posX;
+				var top = ev.clientY - posY;
+				if(left < 0) {
+					left = 0;
+				} else if(left > winW - box.offsetWidth) {
+					left = winW - box.offsetWidth - 2;
+				}
+
+				if (top < 0) {
+					top = 0;
+				} else if(top > winH - box.offsetHeight) {
+					top = winH - box.offsetWidth - 2;
+				}
+
+				pox.style.left = left + 'px';
+				pox.style.top = top + 'px';
+			}
+
+			document.onmouseup = function(e) {
+				this.onmousemove = null;
+				this.onmouseup = null;
+
+				box.style.left = pox.offsetLeft + 'px';
+				box.style.top = pox.offsetTop + 'px';
+				document.body.removeChild(pox);
+			}
+		}
+
+	</script>
+</body>
+</html>
