@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JS | 60s倒计时</title>
+</head>
+<body>
+	<button id="btn">获取倒计时</button>
+	<script type="text/javascript">
+		var btn = document.getElementById("btn");
+		btn.onclick = function() {
+			countDown(this);				
+		}
+
+		function countDown(obj) {   //验证码60s倒计时
+			var a = 10;
+			var timer = setInterval(tt,1000);
+			function tt() {
+				a--;
+				if ( a == 0 ) {
+					obj.innerHTML = "重新获取";
+					a = 60;
+					clearInterval(timer);
+					btn.disabled = false;
+				} else {
+					obj.innerHTML = a + 's';
+					btn.disabled = true;
+				}
+			}
+		}
+	</script>
+</body>
+</html>
