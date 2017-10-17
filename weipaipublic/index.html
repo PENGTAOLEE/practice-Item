@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no" />
+    <title>小福拍</title>
+    <!-- <script src="http://gosspublic.alicdn.com/aliyun-oss-sdk-4.3.0.min.js"></script> -->
+    <!--<script src="https://cdn.bootcss.com/babel-polyfill/6.23.0/polyfill.min.js"></script>-->
+    <script src="/static/configuration.js"></script>
+    <script src="/static/polyfill.js"></script>	
+    <script src="/static/html2canvas.js"></script>
+    <script>
+      (function() {
+        // <!--动态设置像素比-->
+        var iScale = 1;
+        iScale = iScale / window.devicePixelRatio;
+        document.write('<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=' + iScale + ',minimum-scale=' + iScale + ',maximum-scale=' + iScale + '">');
+        document.write("<style>.ui-popup-show .ui-dialog { transform:scale("+1/iScale+");}{</style>");
+        // <!--动态设置文字大小-->
+        function resize() {
+          var iWidth = document.documentElement.clientWidth;
+          var dpr = window.devicePixelRatio + '';
+          //     iWidth = iWidth > 1242 ? 1242 : iWidth;
+          document.getElementsByTagName('html')[0].style.fontSize = iWidth / 37.5 + 'px';
+          document.getElementsByTagName('html')[0].setAttribute('data-dpr', dpr);
+        }
+        resize();
+        window.addEventListener("resize", function() {
+          resize();
+        });
+
+      })();
+    </script>
+  </head>
+  <body>
+  <div id="app">
+      <!-- <router-view></router-view>
+      <my-footer></my-footer> -->
+  </div>
+  <div class="loading-box">
+    <div class="loading-cell">努力加载中...</div>
+  </div>
+  <script>
+    window.iosUrl = encodeURIComponent(location.href.split('#')[0]);
+    // uc qq浏览器
+    var featureDetect = function () {
+      // uc qq低端浏览器兼容处理
+    }
+  </script>
+  <div style="display:none">
+    <script src="https://s4.cnzz.com/z_stat.php?id=1261861581&web_id=1261861581" language="JavaScript"></script>
+  </div>
+  </body>
+</html>
