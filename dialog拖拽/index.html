@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Dialog</title>
+	<link rel="stylesheet" href="./static/css/common.css">
+	<script type="text/javascript" src="./static/js/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="./static/js/utils.js"></script>
+	<script type="text/javascript" src="./static/js/dialog.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+		var showConfirm = function (title, text, callback, is_not) {
+                var dg = new top.Core.DialogBase({
+                    title: title || '',
+                    content: '<div>'+
+                                '<div rel="base_content">'+
+                                    '<div style="margin:10px 0 10px 30px;float:none;width:640px;">'+
+                                        '<div class="flex-main manage-container">'+
+                                            '<table>'+
+                                                '<thead>'+
+                                                    '<tr>'+
+                                                        '<th>次数</th>'+
+                                                        '<th>类型</th>'+
+                                                        '<th>详情</th>'+
+                                                        '<th>时间</th>'+
+                                                        '<th>操作用户</th>'+
+                                                    '</tr>'+
+                                                '</thead>'+
+                                                '<tbody class="js-tbody-list">'+
+                                                    
+                                                '</tbody>'+
+                                            '</table>'+
+                                        '</div>'+
+                                    '</div>'+
+                                '</div>'+
+                            '</div>'
+                })
+                dg.Open(function () {
+                    setTimeout(function () {
+                        dg.warp.find('textarea').focus();
+                        dg.warp.find('select').trigger('change');
+                    },200);
+
+                    var _html = [];
+                    // var url = '/authorAudit/listReject';
+                    // $.ajax({
+                    //     type: "GET",
+                    //     url: url,
+                    //     data: {
+                    //         user_id: $('input[name=user_id]').val()
+                    //     },
+                    //     dataType: "json",
+                    //     success: function(res) {
+                    //         if (res.code == 0) {
+                    //             var list = res.data.list;
+                    //             for(var i=0;i<list.length;i++) {
+                    //                 _html.push(''+
+                    //                         '<tr>'+
+                    //                         '<td>'+(i+1)+'</td>'+
+                    //                         '<td>我的信息审核</td>'+
+                    //                         '<td>'+list[i].audit_msg+'</td>'+
+                    //                         '<td>'+list[i].format_time+'</td>'+
+                    //                         '<td>'+list[i].admin_name+'</td>'+
+                    //                         '</tr>')
+                    //             }
+                    //             dg.warp.find('.js-tbody-list').html(_html.join());
+                    //         }
+                    //     }
+                    // })
+                    
+                    for(var i=0;i<10;i++) {
+                        _html.push(''+
+                                '<tr>'+
+                                '<td>'+(i+1)+'</td>'+
+                                '<td>我的信息审核</td>'+
+                                '<td>'+11+'</td>'+
+                                '<td>'+2017+'</td>'+
+                                '<td>'+'七月'+'</td>'+
+                                '</tr>')
+                    }
+                    dg.warp.find('.js-tbody-list').html(_html.join());
+                    
+
+                    dg.warp.find('[data-btn]').on('click', function () {
+                        var _this = $(this),
+                            btn = _this.attr('data-btn');
+                        if(btn == 'cancel') {
+                            dg.Close();
+                            return false;
+                        }
+                        var val = $.trim( dg.warp.find('textarea').val() );
+                        callback(val, dg)
+                        return false;
+                    })
+                });
+            };
+            showConfirm('拒绝原因');
+            // $('#lookat-reason').on('click',function() {
+            //     showConfirm('拒绝原因');
+            // })
+	</script>
+</body>
+</html>

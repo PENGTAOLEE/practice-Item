@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="64" height="16" viewBox="0 0 64 16">
+    <defs>
+        <rect id="icon_checkbox-a" width="16" height="16"/>
+        <filter id="icon_checkbox-b" width="118.8%" height="118.8%" x="-9.4%" y="-9.4%" filterUnits="objectBoundingBox">
+            <feGaussianBlur in="SourceAlpha" result="shadowBlurInner1" stdDeviation="1"/>
+            <feOffset dx="1" dy="1" in="shadowBlurInner1" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+            <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0"/>
+        </filter>
+        <rect id="icon_checkbox-c" width="16" height="16" x="16"/>
+        <filter id="icon_checkbox-d" width="118.8%" height="118.8%" x="-9.4%" y="-9.4%" filterUnits="objectBoundingBox">
+            <feGaussianBlur in="SourceAlpha" result="shadowBlurInner1" stdDeviation="1"/>
+            <feOffset dx="1" dy="1" in="shadowBlurInner1" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+            <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0"/>
+        </filter>
+        <rect id="icon_checkbox-e" width="16" height="16" x="48"/>
+        <filter id="icon_checkbox-f" width="118.8%" height="118.8%" x="-9.4%" y="-9.4%" filterUnits="objectBoundingBox">
+            <feGaussianBlur in="SourceAlpha" result="shadowBlurInner1" stdDeviation="1"/>
+            <feOffset dx="1" dy="1" in="shadowBlurInner1" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+            <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0"/>
+        </filter>
+        <rect id="icon_checkbox-g" width="16" height="16"/>
+        <filter id="icon_checkbox-h" width="118.8%" height="118.8%" x="-9.4%" y="-9.4%" filterUnits="objectBoundingBox">
+            <feGaussianBlur in="SourceAlpha" result="shadowBlurInner1" stdDeviation="1"/>
+            <feOffset dx="1" dy="1" in="shadowBlurInner1" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+            <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0"/>
+        </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <use fill="#FFF" xlink:href="#icon_checkbox-a"/>
+        <use fill="#000" filter="url(#icon_checkbox-b)" xlink:href="#icon_checkbox-a"/>
+        <rect width="15" height="15" x=".5" y=".5" stroke="#D0D0D0"/>
+        <use fill="#FFF" xlink:href="#icon_checkbox-c"/>
+        <use fill="#000" filter="url(#icon_checkbox-d)" xlink:href="#icon_checkbox-c"/>
+        <rect width="15" height="15" x="16.5" y=".5" stroke="#37A2F4"/>
+        <g>
+            <use fill="#FFF" xlink:href="#icon_checkbox-e"/>
+            <use fill="#000" filter="url(#icon_checkbox-f)" xlink:href="#icon_checkbox-e"/>
+            <rect width="15" height="15" x="48.5" y=".5" stroke="#D0D0D0"/>
+        </g>
+        <rect width="10" height="10" x="51" y="3" fill="#17A2FA"/>
+        <g transform="translate(32)">
+            <use fill="#FFF" xlink:href="#icon_checkbox-g"/>
+            <use fill="#000" filter="url(#icon_checkbox-h)" xlink:href="#icon_checkbox-g"/>
+            <rect width="15" height="15" x=".5" y=".5" stroke="#D0D0D0"/>
+            <path fill="#17A2FA" fill-rule="nonzero" d="M3,8.34886702 L4.27903664,7.06983038 L6.83718115,9.62783245 C6.83718115,9.62783245 8.28685096,6.53692218 14,4 L14,5.02330053 C14,5.02330053 11.6124887,5.23644957 6.83718115,11.9302408 L3,8.34886702 Z"/>
+        </g>
+    </g>
+</svg>
